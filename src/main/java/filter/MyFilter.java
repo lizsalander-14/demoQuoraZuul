@@ -34,10 +34,9 @@ public class MyFilter extends ZuulFilter {
         request=ctx.getRequest();
         String uri=request.getRequestURI();
         System.out.println(uri);
-//        if ((uri != null) && (uri.equals(""))) {
-//            return true;
-//        }
-        //return false;
+        if ((uri != null) && ((uri.equals("/profile/basicDetails")) || (uri.equals("/questions/getQuestionStatus")) || (uri.equals("/questions/getAllQuestions")) || (uri.equals("/questions/getQuestionsOfSelectedCategories")) || (uri.equals("/answers/getAnswerStatus"))|| (uri.equals("/answers/getAllAnswersOfAQuestion")))) {
+            return false;
+        }
         return true;
     }
 
